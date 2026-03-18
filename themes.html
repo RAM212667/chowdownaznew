@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="1">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChowDown AZ – Chef Moe's Ox Tail Cafe | Theme Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Playfair+Display:wght@700;900&family=Roboto:wght@400;500;700&family=Anton&family=Permanent+Marker&family=Russo+One&family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,900&family=Merriweather:wght@700;900&family=Space+Grotesk:wght@500;700&family=Teko:wght@600;700&display=swap" rel="stylesheet" />
+
+  <style>
+  /* ===================================================
+     RESET
+  =================================================== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  img { display: block; max-width: 100%; }
+  a { text-decoration: none; }
+  ul { list-style: none; }
+
+  /* ===================================================
+     THEME SWITCHER BAR (fixed, always on top)
+  =================================================== */
+  #ts {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+    background: #111; display: flex; align-items: center; gap: 6px;
+    padding: 7px 14px; overflow-x: auto; scrollbar-width: thin;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+  }
+  #ts-label {
+    color: #aaa; font: 700 10px/1 'Roboto', sans-serif;
+    text-transform: uppercase; letter-spacing: 2px; white-space: nowrap;
+    margin-right: 4px;
+  }
+  .tb {
+    padding: 5px 11px; border: 1.5px solid #444; background: #1e1e1e;
+    color: #bbb; font: 700 10px/1 'Roboto', sans-serif;
+    cursor: pointer; border-radius: 3px; white-space: nowrap;
+    transition: border-color .15s, color .15s, background .15s;
+  }
+  .tb:hover { border-color: #888; color: #fff; }
+  .tb.active { border-color: #e33; background: #c00; color: #fff; }
+  .ts-info {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+    background: rgba(0,0,0,0.82); backdrop-filter: blur(6px);
+    padding: 8px 20px; display: flex; align-items: center; gap: 12px;
+    font: 400 12px/1 'Roboto', sans-serif; color: #fff;
+  }
+  .ts-info strong { color: #ff6060; }
+  body { padding-top: 38px; padding-bottom: 38px; }
+
+  /* SOCIAL STRIP */
+  .social-strip {
+    background: var(--c-nav-bg);
+    border-top: 1px solid rgba(255,255,255,.1);
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    padding: 7px 28px;
+  }
+  .social-strip-inner {
+    max-width: 1120px; margin: 0 auto;
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .social-follow-label {
+    font-family: var(--f-body); font-size: 11px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--c-nav-text); opacity: .6;
+    margin-right: 6px;
+  }
+  .social-btn {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-family: var(--f-body); font-size: 12px; font-weight: 600;
+    padding: 5px 12px; border-radius: 3px;
+    transition: opacity .15s, transform .15s;
+    color: #fff;
+  }
+  .social-btn:hover { opacity: .85; transform: translateY(-1px); }
+  .social-tiktok { background: #010101; }
+  .social-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+  .social-fb { background: #1877F2; }
+  .social-tiktok-watch { background: var(--c-nav-cta-bg); color: var(--c-nav-cta-tx) !important; }
+
+  @media (max-width: 860px) {
+    .social-strip { padding: 6px 14px; }
+    .social-follow-label { display: none; }
+    .social-btn { font-size: 11px; padding: 4px 9px; }
+  }
+
+  /* ===================================================
+     THEME VARIABLES – all 10 themes
+  =================================================== */
+
+  /* ── THEME 1: BOLD AMERICAN DINER ── */
+  [data-theme="1"] {
+    --c-nav-bg:      #B22234;
+    --c-nav-text:    #fff;
+    --c-nav-hl:      #fff;
+    --c-nav-cta-bg:  #002868;
+    --c-nav-cta-tx:  #fff;
+
+    --c-hero-bg:     #B22234;
+    --c-hero-h1:     #fff;
+    --c-hero-sub:    rgba(255,255,255,.85);
+    --c-hero-eye:    #FFD700;
+
+    --c-btn1-bg:     #fff;
+    --c-btn1-tx:     #B22234;
+    --c-btn2-bg:     transparent;
+    --c-btn2-tx:     #fff;
+    --c-btn2-bd:     rgba(255,255,255,.6);
+
+    --c-sec1:        #fff;
+    --c-sec2:        #F0F4FF;
+    --c-sec-tx:      #1a1a1a;
+    --c-acc1:        #002868;
+    --c-acc2:        #B22234;
+
+    --c-card-bg:     #fff;
+    --c-card-bd:     #002868;
+    --c-step-bg:     #002868;
+    --c-step-tx:     #fff;
+
+    --c-contact-bg:  #002868;
+    --c-contact-tx:  #fff;
+
+    --c-ft-bg:       #1a1a1a;
+    --c-ft-tx:       #fff;
+
+    --f-head:        'Bebas Neue', sans-serif;
+    --f-body:        'Roboto', sans-serif;
+    --letter-head:   2px;
+  }
+
+  /* ── THEME 2: NAVY COMMANDER ── */
+  [data-theme="2"] {
+    --c-nav-bg:      #001F5B;
+    --c-nav-text:    #fff;
+    --c-nav-hl:      #CF1020;
+    --c-nav-cta-bg:  #CF1020;
+    --c-nav-cta-tx:  #fff;
+
+    --c-hero-bg:     #001F5B;
+    --c-hero-h1:     #fff;
+    --c-hero-sub:    rgba(255,255,255,.78);
+    --c-hero-eye:    #CF1020;
+
+    --c-btn1-bg:     #CF1020;
+    --c-btn1-tx:     #fff;
+    --c-btn2-bg:     transparent;
+    --c-btn2-tx:     #fff;
+    --c-btn2-bd:     rgba(255,255,255,.5);
+
+    --c-sec1:        #fff;
+    --c-sec2:        #EEF2FF;
+    --c-sec-tx:      #1a1a1a;
+    --c-acc1:        #001F5B;
+    --c-acc2:        #CF1020;
+
+    --c-card-bg:     #fff;
+    --c-card-bd:     #001F5B;
+    --c-step-bg:     #CF1020;
+    --c-step-tx:     #fff;
+
+    --c-contact-bg:  #CF1020;
+    --c-contact-tx:  #fff;
+
+    --c-ft-bg:       #001F5B;
+    --c-ft-tx:       #fff;
+
+    --f-head:        'Oswald', sans-serif;
+    --f-body:        'Roboto', sans-serif;
+    --letter-head:   3px;
+  }
+
+  /* ── THEME 3: FIREHOUSE RED ── */
+  [data-theme="3"] {
+    --c-nav-bg:      #111;
+    --c-nav-text:    #FFD700;
+    --c-nav-hl:      #FFD700;
+    --c-nav-cta-bg:  #CC0000;
+    --c-nav-cta-tx:  #FFD700;
+
+    --c-hero-bg:     #8B0000;
+    --c-hero-h1:     #FFD700;
+    --c-hero-sub:    rgba(255,255,255,.85);
+    --c-hero-eye:    #FF6B6B;
+
+    --c-btn1-bg:     #FFD700;
+    --c-btn1-tx:     #8B0000;
+    --c-btn2-bg:     transparent;
+    --c-btn2-tx:     #FFD700;
+    --c-btn2-bd:     #FFD700;
+
+    --c-sec1:        #fff;
+    --c-sec2:        #FFF5F5;
+    --c-sec-tx:      #1a1a1a;
+    --c-acc1:        #8B0000;
+    --c-acc2:        #002868;
+
+    --c-card-bg:     #fff;
+    --c-card-bd:     #8B0000;
+    --c-step-bg:     #8B0000;
+    --c-step-tx:     #FFD700;
+
+    --c-contact-bg:  #8B0000;
+    --c-contact-tx:  #FFD700;
+
+    --c-ft-bg:       #111;
+    --c-ft-tx:       #fff;
+
+    --f-head:        'Anton', sans-serif;
+    --f-body:        'Roboto', sans-serif;
+    --letter-head:   1px;
+  }
+
+  /* ── THEME 4: STARFIELD (Dark) ── */
+  [data-theme="4"] {
+    --c-nav-bg:      #070B22;
+    --c-nav-text:    #fff;
+    --c-nav-hl:      #FF4757;
+    --c-nav-cta-bg:  #FF4757;
+    --c-nav-cta-tx:  #fff;
+
+    --c-hero-bg:     #0A0E2E;
+    --c-hero-h1:     #fff;
+    --c-hero-sub:    rgba(255,255,255,.7);
+    --c-hero-eye:    #5B8CFF;
+
+    --c-btn1-bg:     #FF4757;
+    --c-btn1-tx:     #fff;
+    --c-btn2-bg:     transparent;
+    --c-btn2-tx:     #fff;
+    --c-btn2-bd:     rgba(255,255,255,.4);
+
+    --c-sec1:        #0D1235;
+    --c-sec2:        #111845;
+    --c-sec-tx:      #e8e8ff;
+    --c-acc1:        #5B8CFF;
+    --c-acc2:        #FF4757;
+
+    --c-card-bg:     rgba(255,255,255,.06);
+    --c-card-bd:     rgba(255,255,255,.14);
+    --c-step-bg:     #FF4757;
+    --c-step-tx:     #fff;
+
+    --c-contact-bg:  #FF4757;
+    --c-contact-tx:  #fff;
+
+    --c-ft-bg:       #050918;
+    --c-ft-tx:       rgba(255,255,255,.7);
+
+    --f-head:        'Russo One', sans-serif;
+    --f-body:        'Roboto', sans-serif;
+    --letter-head:   1px;
+  }
+
+  /* ── THEME 5: CLEAN PATRIOT (Modern Minimal) ── */
+  [data-theme="5"] {
+    --c-nav-bg:      #fff;
+    --c-nav-text:    #002868;
+    --c-nav-hl:      #B22234;
+    --c-nav-cta-bg:  #B22234;
+    --c-nav-cta-tx:  #fff;
+
+    --c-hero-bg:     #fff;
+    --c-hero-h1:     #002868;
+    --c-hero-sub:    #555;
+    --c-hero-eye:    #B22234;
+
+    --c-btn1-bg:     #B22234;
+    --c-btn1-tx:     #fff;
+    --c-btn2-bg:     transparent;
+    --c-btn2-tx:     #002868;
+    --c-btn2-bd:     #002868;
+
+    --c-sec1:        #F8F9FF;
+    --c-sec2:        #fff;
+    --c-sec-tx:      #222;
+    --c-acc1:        #002868;
+    --c-acc2:        #B22234;
+
+    --c-card-bg:     #fff;
+    --c-card-bd:     #D8E0FF;
+    --c-step-bg:     #002868;
+    --c-step-tx:     #fff;
+
+    --c-contact-bg:  #002868;
+    --c-contact-tx:  #fff;
+
+    --c-ft-bg:       #002868;
+    --c-ft-tx:       #fff;
+
+    --f-head:        'Space Grotesk', sans-serif;
+    --f-body:        'Roboto', sans-serif;
+    --letter-head:   -0.5px;
+  }
+
+  /* ── THEME 6: VINTAGE BBQ JOINT ── */
+  [data-theme="6"] {
+    --c-nav-bg:      #2C1810;
+    --c-nav-text:    #F5E6C8;
+    --c-nav-hl:      #C8102E;
+    --c-nav-cta-bg:  #C8102E;
+    --c-nav-cta-tx:  #F5E6C8;
+
+    --c-hero-bg:     #2C1810;
+    --c-hero-h1:     #F5E6C8;
+    --c-hero-sub:    rgba(245,230,200,.85);
+    --c-hero-eye:    #C8102E;
+
+    --c-btn1-bg:     #C8102E;
+    --c-btn1-tx:     #F5E6C8;
+    --c-btn2-bg:     transparent;
+    --c-btn2-tx:     #F5E6C8;
+    --c-btn2-bd:     rgba(245,230,200,.5);
+
+    --c-sec1:        #FDF6E9;
+    --c-sec2:        #F5E6C8;
+    --c-sec-tx:      #2C1810;
+    --c-acc1:        #C8102E;
+    --c-acc2:        #1B3A6B;
+
+    --c-card-bg:     #fff;
+    --c-card-bd:     #C8102E;
+    --c-step-bg:     #C8102E;
+    --c-step-tx:     #F5E6C8;
+
+    --c-contact-bg:  #1B3A6B;
+    --c-contact-tx:  #F5E6C8;
+
+    --c-ft-bg:       #1B3A6B;
+    --c-ft-tx:       #F5E6C8;
+
+    --f-head:        'Permanent Marker', cursive;
+    --f-body:        'Roboto', sans-serif;
+    --letter-head:   1px;
+  }
+
+  /* ── THEME 7: POP ART HERO ── */
+  [data-theme="7"] {
+    --c-nav-bg:      #E8001A;
+    --c-nav-text:    #fff;
+    --c-nav-hl:      #002868;
+    --c-nav-cta-bg:  #002868;
+    --c-nav-cta-tx:  #fff;
+
+    --c-hero-bg:     #002868;
+    --c-hero-h1:     #FFFF00;
+    --c-hero-sub:    #fff;
+    --c-hero-eye:    #FFFF00;
+
+    --c-btn1-bg:     #E8001A;
+    --c-btn1-tx:     #fff;
+    --c-btn2-bg:     #FFFF00;
+    --c-btn2-tx:     #002868;
+    --c-btn2-bd:     transparent;
+
+    --c-sec1:        #fff;
+    --c-sec2:        #FFF5CC;
+    --c-sec-tx:      #111;
+    --c-acc1:        #E8001A;
+    --c-acc2:        #002868;
+
+    --c-card-bg:     #fff;
+    --c-card-bd:     #111;
+    --c-step-bg:     #E8001A;
+    --c-step-tx:     #fff;
+
+    --c-contact-bg:  #E8001A;
+    --c-contact-tx:  #fff;
+
+    --c-ft-bg:       #111;
+    --c-ft-tx:       #fff;
+
+    --f-head:        'Barlow Condensed', sans-serif;
+    --f-body:        'Roboto', sans-serif;
+    --letter-head:   3px;
+  }
+
+  /* ── THEME 8: MIDNIGHT LUXURY (Dark) ── */
+  [data-theme="8"] {
+    --c-nav-bg:      #0D0D0D;
+    --c-nav-text:    #fff;
+    --c-nav-hl:      #FF2040;
+    --c-nav-cta-bg:  #FF2040;
+    --c-nav-cta-tx:  #fff;
+
+    --c-hero-bg:     #0D0D0D;
+    --c-hero-h1:     #fff;
+    --c-hero-sub:    rgba(255,255,255,.6);
+    --c-hero-eye:    #3D7FFF;
+
+    --c-btn1-bg:     #FF2040;
+    --c-btn1-tx:     #fff;
+    --c-btn2-bg:     transparent;
+    --c-btn2-tx:     rgba(255,255,255,.8);
+    --c-btn2-bd:     rgba(255,255,255,.25);
+
+    --c-sec1:        #111;
+    --c-sec2:        #161616;
+    --c-sec-tx:      rgba(255,255,255,.88);
+    --c-acc1:        #FF2040;
+    --c-acc2:        #3D7FFF;
+
+    --c-card-bg:     rgba(255,255,255,.05);
+    --c-card-bd:     rgba(255,32,64,.3);
+    --c-step-bg:     rgba(255,32,64,.18);
+    --c-step-tx:     #fff;
+
+    --c-contact-bg:  #FF2040;
+    --c-contact-tx:  #fff;
+
+    --c-ft-bg:       #000;
+    --c-ft-tx:       rgba(255,255,255,.6);
+
+    --f-head:        'Playfair Display', serif;
+    --f-body:        'Roboto', sans-serif;
+    --letter-head:   0px;
+  }
+
+  /* ── THEME 9: ELECTION NIGHT (News/Editorial) ── */
+  [data-theme="9"] {
+    --c-nav-bg:      #fff;
+    --c-nav-text:    #111;
+    --c-nav-hl:      #CC0001;
+    --c-nav-cta-bg:  #CC0001;
+    --c-nav-cta-tx:  #fff;
+
+    --c-hero-bg:     #CC0001;
+    --c-hero-h1:     #fff;
+    --c-hero-sub:    rgba(255,255,255,.9);
+    --c-hero-eye:    rgba(255,255,255,.7);
+
+    --c-btn1-bg:     #fff;
+    --c-btn1-tx:     #CC0001;
+    --c-btn2-bg:     transparent;
+    --c-btn2-tx:     #fff;
+    --c-btn2-bd:     rgba(255,255,255,.5);
+
+    --c-sec1:        #fff;
+    --c-sec2:        #F0F4F8;
+    --c-sec-tx:      #1a1a1a;
+    --c-acc1:        #003087;
+    --c-acc2:        #CC0001;
+
+    --c-card-bg:     #fff;
+    --c-card-bd:     #ddd;
+    --c-step-bg:     #003087;
+    --c-step-tx:     #fff;
+
+    --c-contact-bg:  #003087;
+    --c-contact-tx:  #fff;
+
+    --c-ft-bg:       #003087;
+    --c-ft-tx:       #fff;
+
+    --f-head:        'Merriweather', serif;
+    --f-body:        'Roboto', sans-serif;
+    --letter-head:   0px;
+  }
+
+  /* ── THEME 10: STARS & STRIPES ── */
+  [data-theme="10"] {
+    --c-nav-bg:      #002868;
+    --c-nav-text:    #fff;
+    --c-nav-hl:      #BF0A30;
+    --c-nav-cta-bg:  #BF0A30;
+    --c-nav-cta-tx:  #fff;
+
+    --c-hero-bg:     #fff;
+    --c-hero-h1:     #002868;
+    --c-hero-sub:    #333;
+    --c-hero-eye:    #BF0A30;
+
+    --c-btn1-bg:     #BF0A30;
+    --c-btn1-tx:     #fff;
+    --c-btn2-bg:     #002868;
+    --c-btn2-tx:     #fff;
+    --c-btn2-bd:     transparent;
+
+    --c-sec1:        #fff;
+    --c-sec2:        #F4F6FF;
+    --c-sec-tx:      #1a1a1a;
+    --c-acc1:        #BF0A30;
+    --c-acc2:        #002868;
+
+    --c-card-bg:     #fff;
+    --c-card-bd:     #002868;
+    --c-step-bg:     #BF0A30;
+    --c-step-tx:     #fff;
+
+    --c-contact-bg:  #002868;
+    --c-contact-tx:  #fff;
+
+    --c-ft-bg:       #002868;
+    --c-ft-tx:       #fff;
+
+    --f-head:        'Teko', sans-serif;
+    --f-body:        'Roboto', sans-serif;
+    --letter-head:   4px;
+  }
+
+  /* ===================================================
+     SHARED LAYOUT COMPONENTS
+  =================================================== */
+
+  /* ── NAV ── */
+  .site-nav {
+    background: var(--c-nav-bg);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 28px; height: 66px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.18);
+    position: relative; z-index: 100;
+  }
+  .site-logo {
+    font-family: var(--f-head); font-size: 28px;
+    color: var(--c-nav-text); letter-spacing: var(--letter-head);
+    line-height: 1;
+  }
+  .site-logo em { color: var(--c-nav-hl); font-style: normal; }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a {
+    font-family: var(--f-body); font-weight: 500; font-size: 14px;
+    color: var(--c-nav-text); opacity: .88; transition: opacity .15s;
+  }
+  .nav-links a:hover { opacity: 1; }
+  .nav-cta {
+    background: var(--c-nav-cta-bg) !important;
+    color: var(--c-nav-cta-tx) !important;
+    padding: 9px 20px; border-radius: 4px;
+    font-weight: 700 !important; opacity: 1 !important;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--c-hero-bg);
+    min-height: 540px; display: flex; align-items: center;
+    justify-content: center; text-align: center;
+    padding: 72px 28px; position: relative; overflow: hidden;
+  }
+  .hero-inner { max-width: 780px; position: relative; z-index: 2; }
+  .hero-eye {
+    font-family: var(--f-body); font-size: 11px; font-weight: 700;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--c-hero-eye); margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-family: var(--f-head);
+    font-size: clamp(56px, 11vw, 104px);
+    color: var(--c-hero-h1);
+    line-height: .95; letter-spacing: var(--letter-head);
+    margin-bottom: 22px; text-transform: uppercase;
+  }
+  .hero p {
+    font-family: var(--f-body); font-size: 18px;
+    color: var(--c-hero-sub); max-width: 560px;
+    margin: 0 auto 36px; line-height: 1.65;
+  }
+  .btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-a {
+    background: var(--c-btn1-bg); color: var(--c-btn1-tx);
+    font-family: var(--f-body); font-weight: 700; font-size: 15px;
+    padding: 14px 34px; border-radius: 4px;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .btn-a:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+  .btn-b {
+    background: var(--c-btn2-bg); color: var(--c-btn2-tx);
+    border: 2px solid var(--c-btn2-bd);
+    font-family: var(--f-body); font-weight: 600; font-size: 15px;
+    padding: 12px 32px; border-radius: 4px;
+    transition: transform .2s;
+  }
+  .btn-b:hover { transform: translateY(-2px); }
+
+  /* ── GENERAL SECTION WRAP ── */
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+  .sec { padding: 88px 28px; }
+  .sec-alt { background: var(--c-sec2); }
+  .sec-bg1 { background: var(--c-sec1); }
+  .sec-h2 {
+    font-family: var(--f-head); font-size: clamp(30px, 5vw, 52px);
+    color: var(--c-acc1); letter-spacing: var(--letter-head);
+    line-height: 1.05; text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .sec-eyebrow {
+    font-family: var(--f-body); font-size: 11px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--c-acc2); margin-bottom: 10px;
+  }
+  .sec-body {
+    font-family: var(--f-body); font-size: 16px;
+    color: var(--c-sec-tx); line-height: 1.72;
+    margin-bottom: 22px;
+  }
+
+  /* ── CHEF SECTION ── */
+  .chef-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+    align-items: center;
+  }
+  .chef-img-wrap { position: relative; }
+  .chef-img-wrap img { width: 100%; border-radius: 8px; }
+  .chef-badge {
+    position: absolute; bottom: -16px; right: -16px;
+    background: var(--c-acc1); color: #fff;
+    font-family: var(--f-head); font-size: 16px;
+    letter-spacing: 2px; padding: 12px 20px;
+    text-transform: uppercase;
+  }
+
+  /* ── OXTAIL SECTION ── */
+  .oxtail-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+    align-items: center;
+  }
+  .oxtail-img { border-radius: 8px; width: 100%; }
+  .feat-list { margin-bottom: 30px; }
+  .feat-list li {
+    font-family: var(--f-body); font-size: 15px;
+    color: var(--c-sec-tx); padding: 6px 0;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .feat-list li::before {
+    content: ''; width: 8px; height: 8px;
+    background: var(--c-acc1); border-radius: 50%; flex-shrink: 0;
+  }
+  .btn-row-left { justify-content: flex-start; }
+
+  /* ── OXTAIL PRICING ── */
+  .oxtail-pricing {
+    display: flex; gap: 14px; flex-wrap: wrap; margin: 22px 0 28px;
+  }
+  .price-card {
+    display: flex; flex-direction: column;
+    background: var(--c-card-bg); border: 2px solid var(--c-acc1);
+    border-radius: 8px; padding: 14px 20px; min-width: 160px;
+  }
+  .price-label {
+    font-family: var(--f-body); font-size: 11px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--c-acc2); margin-bottom: 4px;
+  }
+  .price-amount {
+    font-family: var(--f-head); font-size: 32px;
+    color: var(--c-acc1); line-height: 1;
+    letter-spacing: var(--letter-head);
+  }
+  .price-desc {
+    font-family: var(--f-body); font-size: 12px;
+    color: var(--c-sec-tx); opacity: .75; margin-top: 4px;
+    line-height: 1.4;
+  }
+
+  /* ── GALLERY ── */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px; margin-top: 32px;
+  }
+  .gallery-item {
+    border-radius: 8px; overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 16px rgba(0,0,0,.12);
+    aspect-ratio: 1 / 1;
+  }
+  .gallery-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .3s;
+  }
+  .gallery-item:hover img { transform: scale(1.04); }
+  .gallery-caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,.7));
+    color: #fff; font-family: var(--f-body);
+    font-size: 13px; font-weight: 600;
+    padding: 24px 12px 10px;
+  }
+  @media (max-width: 860px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  }
+  @media (max-width: 540px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  }
+
+  /* ── TIKTOK VIDEO GRID ── */
+  .tiktok-grid {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .tiktok-embed-wrap {
+    flex: 0 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,.15);
+  }
+  @media (max-width: 860px) {
+    .tiktok-grid { gap: 16px; }
+    .tiktok-embed-wrap { width: 100%; max-width: 325px; margin: 0 auto; }
+  }
+
+  /* ── MENU HIGHLIGHTS ── */
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .menu-card {
+    background: var(--c-card-bg);
+    border: 1.5px solid var(--c-card-bd);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .menu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,.14);
+  }
+  .menu-card-img {
+    height: 180px; overflow: hidden;
+  }
+  .menu-card-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .3s;
+  }
+  .menu-card:hover .menu-card-img img { transform: scale(1.06); }
+  .menu-card-body {
+    padding: 18px 18px 22px;
+    display: flex; flex-direction: column; flex: 1;
+  }
+  .menu-tag {
+    display: inline-block;
+    font-family: var(--f-body); font-size: 10px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    background: var(--c-acc1); color: #fff;
+    padding: 3px 9px; border-radius: 3px;
+    margin-bottom: 10px; align-self: flex-start;
+  }
+  .menu-tag-sig { background: var(--c-acc2); }
+  .menu-tag-deal { background: #2e7d32; }
+  .menu-item-name {
+    font-family: var(--f-head); font-size: 20px;
+    color: var(--c-acc1); letter-spacing: var(--letter-head);
+    text-transform: uppercase; margin-bottom: 8px; line-height: 1.1;
+  }
+  .menu-item-desc {
+    font-family: var(--f-body); font-size: 13px;
+    color: var(--c-sec-tx); line-height: 1.6;
+    flex: 1; margin-bottom: 14px;
+  }
+  .menu-item-price {
+    font-family: var(--f-head); font-size: 26px;
+    color: var(--c-acc1); letter-spacing: var(--letter-head);
+    line-height: 1;
+  }
+  @media (max-width: 860px) {
+    .menu-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  }
+  @media (max-width: 540px) {
+    .menu-grid { grid-template-columns: 1fr; gap: 14px; }
+    .menu-card-img { height: 200px; }
+  }
+
+  /* ── STEPS SECTION ── */
+  .steps-center h2 { text-align: center; margin-bottom: 52px; }
+  .steps-grid {
+    max-width: 920px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+  }
+  .step-card {
+    background: var(--c-card-bg); border: 2px solid var(--c-card-bd);
+    border-radius: 8px; padding: 36px 24px; text-align: center;
+  }
+  .step-num {
+    width: 54px; height: 54px; margin: 0 auto 18px;
+    background: var(--c-step-bg); color: var(--c-step-tx);
+    border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; font-family: var(--f-head); font-size: 26px;
+  }
+  .step-card h3 {
+    font-family: var(--f-head); font-size: 22px;
+    color: var(--c-acc1); letter-spacing: var(--letter-head);
+    text-transform: uppercase; margin-bottom: 10px;
+  }
+  .step-card p {
+    font-family: var(--f-body); font-size: 14px;
+    color: var(--c-sec-tx); line-height: 1.62;
+  }
+
+  /* ── CONTACT SECTION ── */
+  .contact-sec {
+    background: var(--c-contact-bg); padding: 88px 28px;
+  }
+  .contact-sec h2 {
+    font-family: var(--f-head); font-size: clamp(28px, 4vw, 46px);
+    color: var(--c-contact-tx); text-align: center;
+    letter-spacing: var(--letter-head); text-transform: uppercase;
+    margin-bottom: 52px;
+  }
+  .contact-grid {
+    max-width: 860px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 32px; text-align: center;
+  }
+  .ci-icon { font-size: 30px; margin-bottom: 10px; }
+  .ci-label {
+    font-family: var(--f-body); font-size: 10px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--c-contact-tx); opacity: .65; margin-bottom: 8px;
+  }
+  .ci-val {
+    font-family: var(--f-body); font-size: 15px;
+    color: var(--c-contact-tx); line-height: 1.65;
+  }
+  .ci-val a { color: var(--c-contact-tx); }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--c-ft-bg); color: var(--c-ft-tx);
+    padding: 36px 28px; text-align: center;
+  }
+  .ft-links {
+    display: flex; gap: 28px; justify-content: center;
+    margin-bottom: 16px; flex-wrap: wrap;
+  }
+  .ft-links a {
+    font-family: var(--f-body); font-size: 13px;
+    color: var(--c-ft-tx); opacity: .65; transition: opacity .15s;
+  }
+  .ft-links a:hover { opacity: 1; }
+  .ft-copy {
+    font-family: var(--f-body); font-size: 12px;
+    color: var(--c-ft-tx); opacity: .5; line-height: 1.8;
+  }
+
+  /* ===================================================
+     THEME-SPECIFIC OVERRIDES
+  =================================================== */
+
+  /* ─── THEME 1: BOLD AMERICAN DINER ───
+     Red hero with bottom navy/white checker ribbon. Chunky Bebas Neue. */
+  [data-theme="1"] .hero::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 14px;
+    background: repeating-linear-gradient(
+      90deg,
+      #002868 0, #002868 26px,
+      #fff 26px, #fff 52px
+    );
+  }
+  [data-theme="1"] .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 15% 50%, rgba(0,40,104,.25) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 30%, rgba(0,0,0,.15) 0%, transparent 50%);
+  }
+  [data-theme="1"] .site-logo { font-size: 32px; }
+  [data-theme="1"] .btn-a { border-radius: 2px; }
+  [data-theme="1"] .step-card { border-radius: 2px; }
+  [data-theme="1"] .chef-badge { border-radius: 0; }
+
+  /* ─── THEME 2: NAVY COMMANDER ───
+     Deep navy with red accent bars top+bottom of hero. Oswald bold. */
+  [data-theme="2"] .hero::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 5px; background: #CF1020;
+  }
+  [data-theme="2"] .hero::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 5px; background: #CF1020;
+  }
+  [data-theme="2"] .hero {
+    background: linear-gradient(135deg, #001F5B 0%, #003399 60%, #001A4F 100%);
+  }
+  [data-theme="2"] .site-nav {
+    border-bottom: 3px solid #CF1020;
+  }
+  [data-theme="2"] .btn-a, [data-theme="2"] .btn-b { border-radius: 2px; }
+  [data-theme="2"] .nav-cta { border-radius: 2px !important; }
+
+  /* ─── THEME 3: FIREHOUSE RED ───
+     Dark red gradient hero, gold text + accents, black nav. Anton font. */
+  [data-theme="3"] .hero {
+    background: linear-gradient(170deg, #8B0000 0%, #CC0000 55%, #7A0000 100%);
+  }
+  [data-theme="3"] .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z' fill='%23FF000015'/%3E%3C/svg%3E") 0 0 / 80px 80px;
+  }
+  [data-theme="3"] .hero h1 { color: #FFD700; }
+  [data-theme="3"] .hero::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, #002868 33%, #fff 33%, #fff 66%, #CC0000 66%);
+  }
+
+  /* ─── THEME 4: STARFIELD ───
+     Fully dark theme. Stars in hero. Neon red + blue glows. Russo One. */
+  [data-theme="4"] .hero {
+    background: #0A0E2E;
+    background-image:
+      radial-gradient(1px 1px at 8%  20%, rgba(255,255,255,.9) 0%, transparent 100%),
+      radial-gradient(1px 1px at 25% 75%, rgba(255,255,255,.8) 0%, transparent 100%),
+      radial-gradient(2px 2px at 40% 35%, rgba(91,140,255,.95) 0%, transparent 100%),
+      radial-gradient(1px 1px at 55% 85%, rgba(255,255,255,.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 70% 15%, rgba(255,255,255,.85) 0%, transparent 100%),
+      radial-gradient(2px 2px at 85% 55%, rgba(255,71,87,.9) 0%, transparent 100%),
+      radial-gradient(1px 1px at 92% 80%, rgba(255,255,255,.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 15% 60%, rgba(255,255,255,.6) 0%, transparent 100%),
+      radial-gradient(2px 2px at 62% 48%, rgba(255,255,255,.9) 0%, transparent 100%),
+      radial-gradient(1px 1px at 33% 90%, rgba(91,140,255,.7) 0%, transparent 100%);
+  }
+  [data-theme="4"] .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 70% at 25% 50%, rgba(91,140,255,.1) 0%, transparent 100%),
+      radial-gradient(ellipse 60% 70% at 75% 50%, rgba(255,71,87,.1) 0%, transparent 100%);
+  }
+  [data-theme="4"] .chef-section { background: var(--c-sec1); }
+  [data-theme="4"] .oxtail-section { background: var(--c-sec2); }
+  [data-theme="4"] .sec-h2 { color: #5B8CFF; }
+  [data-theme="4"] .oxtail-grid .sec-h2 { color: #FF4757; }
+  [data-theme="4"] .step-card h3 { color: #5B8CFF; }
+  [data-theme="4"] .step-card { border-color: rgba(255,255,255,.12); }
+  [data-theme="4"] .site-nav { border-bottom: 1px solid rgba(255,255,255,.1); }
+  [data-theme="4"] .feat-list li::before { background: #FF4757; }
+  [data-theme="4"] .chef-badge { background: #5B8CFF; }
+
+  /* ─── THEME 5: CLEAN PATRIOT ───
+     White, minimal. Thin top color bar. Red + blue as precise accent lines. */
+  [data-theme="5"] .site-nav {
+    border-bottom: 3px solid #B22234;
+    box-shadow: 0 1px 6px rgba(0,0,0,.08);
+  }
+  [data-theme="5"] .hero {
+    border-bottom: 8px solid #002868;
+  }
+  [data-theme="5"] .hero::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 6px;
+    background: linear-gradient(90deg, #B22234 50%, #002868 50%);
+  }
+  [data-theme="5"] .hero h1 { font-size: clamp(48px, 9vw, 88px); }
+  [data-theme="5"] .btn-a { border-radius: 24px; }
+  [data-theme="5"] .btn-b { border-radius: 24px; }
+  [data-theme="5"] .nav-cta { border-radius: 24px !important; }
+  [data-theme="5"] .step-num { border-radius: 4px; }
+  [data-theme="5"] .step-card { border-radius: 12px; }
+
+  /* ─── THEME 6: VINTAGE BBQ JOINT ───
+     Warm sepia tones, dark brown nav/hero. Permanent Marker font. */
+  [data-theme="6"] .hero {
+    background: #2C1810;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C8102E' fill-opacity='0.07'%3E%3Ccircle cx='10' cy='10' r='3'/%3E%3Ccircle cx='30' cy='30' r='3'/%3E%3Ccircle cx='50' cy='10' r='3'/%3E%3Ccircle cx='10' cy='50' r='3'/%3E%3Ccircle cx='50' cy='50' r='3'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  [data-theme="6"] .hero::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 6px;
+    background: repeating-linear-gradient(90deg, #C8102E 0, #C8102E 30px, #1B3A6B 30px, #1B3A6B 60px);
+  }
+  [data-theme="6"] .sec-h2 { text-transform: none; }
+  [data-theme="6"] .hero h1 { text-transform: none; font-size: clamp(44px, 8vw, 80px); }
+  [data-theme="6"] .hero-eye { text-transform: none; letter-spacing: 1px; }
+  [data-theme="6"] .chef-section { background: #FDF6E9; }
+  [data-theme="6"] .oxtail-section { background: #F5E6C8; }
+  [data-theme="6"] .step-card { border-radius: 0; border-style: dashed; }
+
+  /* ─── THEME 7: POP ART HERO ───
+     Navy hero with halftone dot overlay. Yellow headlines. High contrast. */
+  [data-theme="7"] .hero {
+    background: #002868;
+    background-image: radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+  [data-theme="7"] .hero::before {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 8px;
+    background: #E8001A;
+  }
+  [data-theme="7"] .site-nav { border-bottom: 4px solid #002868; }
+  [data-theme="7"] .btn-a { border-radius: 0; text-transform: uppercase; letter-spacing: 3px; }
+  [data-theme="7"] .btn-b { border-radius: 0; text-transform: uppercase; letter-spacing: 2px; }
+  [data-theme="7"] .nav-cta { border-radius: 0 !important; }
+  [data-theme="7"] .step-card { border-radius: 0; border-width: 3px; }
+  [data-theme="7"] .chef-badge { border-radius: 0; background: #E8001A; }
+  [data-theme="7"] .hero h1 {
+    -webkit-text-stroke: 2px #002868; text-shadow: 4px 4px 0 #E8001A;
+  }
+  [data-theme="7"] .sec-h2 { -webkit-text-stroke: 1px var(--c-acc2); }
+
+  /* ─── THEME 8: MIDNIGHT LUXURY ───
+     All dark. Red + blue gradient text headings. Playfair Display serif. */
+  [data-theme="8"] .hero {
+    background: #0D0D0D;
+    background-image:
+      radial-gradient(ellipse 70% 80% at 20% 50%, rgba(255,32,64,.12) 0%, transparent 70%),
+      radial-gradient(ellipse 70% 80% at 80% 50%, rgba(61,127,255,.12) 0%, transparent 70%);
+  }
+  [data-theme="8"] .site-nav { border-bottom: 1px solid rgba(255,255,255,.07); }
+  [data-theme="8"] .chef-section { background: #111; }
+  [data-theme="8"] .oxtail-section { background: #161616; }
+  [data-theme="8"] .chef-content .sec-h2 {
+    background: linear-gradient(135deg, #FF2040, #FF7090);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  [data-theme="8"] .oxtail-grid .sec-h2 {
+    background: linear-gradient(135deg, #3D7FFF, #80AAFF);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  [data-theme="8"] .steps-center h2 {
+    background: linear-gradient(135deg, #FF2040, #FF7090);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  [data-theme="8"] .hero h1 { text-transform: none; font-style: italic; }
+  [data-theme="8"] .step-card { border-radius: 12px; }
+  [data-theme="8"] .chef-img-wrap img { filter: contrast(1.08) saturate(0.85); }
+
+  /* ─── THEME 9: ELECTION NIGHT ───
+     White nav with strong red hero block. Merriweather serif. Editorial grid. */
+  [data-theme="9"] .site-nav {
+    border-top: 4px solid #CC0001;
+    border-bottom: 4px solid #003087;
+    box-shadow: none;
+  }
+  [data-theme="9"] .hero { background: #CC0001; }
+  [data-theme="9"] .hero h1 { text-transform: none; font-style: italic; }
+  [data-theme="9"] .hero::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 12px;
+    background: #003087;
+  }
+  [data-theme="9"] .hero::after {
+    content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 12px;
+    background: #003087;
+  }
+  [data-theme="9"] .oxtail-section { background: #F0F4F8; }
+  [data-theme="9"] .chef-content .sec-h2 { color: #CC0001; }
+  [data-theme="9"] .step-card { border-radius: 2px; }
+
+  /* ─── THEME 10: STARS & STRIPES ───
+     White hero with very subtle flag-stripe overlay. Navy nav + footer. Teko. */
+  [data-theme="10"] .hero {
+    background: #fff; min-height: 560px;
+  }
+  [data-theme="10"] .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      180deg,
+      rgba(191,10,48,.08) 0, rgba(191,10,48,.08) 40px,
+      rgba(255,255,255,0) 40px, rgba(255,255,255,0) 80px
+    );
+  }
+  [data-theme="10"] .hero::after {
+    content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 80px;
+    background: #002868;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ctext y='16' font-size='14' fill='white' opacity='.5'%3E%E2%98%85%3C/text%3E%3Ctext x='20' y='30' font-size='14' fill='white' opacity='.5'%3E%E2%98%85%3C/text%3E%3C/svg%3E");
+    background-size: 40px 40px;
+  }
+  [data-theme="10"] .hero-inner { padding-left: 60px; }
+  [data-theme="10"] .hero h1 { letter-spacing: 6px; }
+  [data-theme="10"] .step-card { border-radius: 0; border-width: 3px; }
+  [data-theme="10"] .btn-a, [data-theme="10"] .btn-b { border-radius: 0; }
+  [data-theme="10"] .nav-cta { border-radius: 0 !important; }
+
+  /* ===================================================
+     RESPONSIVE
+  =================================================== */
+  @media (max-width: 860px) {
+    .nav-links { display: none; }
+    .chef-grid, .oxtail-grid, .steps-grid, .contact-grid {
+      grid-template-columns: 1fr; gap: 32px;
+    }
+    .chef-badge { right: 0; bottom: -10px; font-size: 13px; padding: 8px 14px; }
+    .oxtail-grid { direction: ltr; }
+    [data-theme="10"] .hero::after { width: 0; }
+    [data-theme="10"] .hero-inner { padding-left: 0; }
+    #ts { gap: 4px; padding: 6px 10px; }
+    .tb { padding: 4px 8px; font-size: 9px; }
+  }
+  @media (max-width: 540px) {
+    .hero { min-height: 420px; padding: 52px 20px; }
+    .sec { padding: 60px 20px; }
+    .contact-sec { padding: 60px 20px; }
+    .hero h1 { font-size: clamp(44px, 14vw, 70px); }
+  }
+  </style>
+</head>
+<body>
+
+<!-- =====================================================
+     THEME SWITCHER
+===================================================== -->
+<div id="ts">
+  <span id="ts-label">THEME ▸</span>
+  <button class="tb active" onclick="setTheme('1')">1 · Bold Diner</button>
+  <button class="tb" onclick="setTheme('2')">2 · Navy Commander</button>
+  <button class="tb" onclick="setTheme('3')">3 · Firehouse Red</button>
+  <button class="tb" onclick="setTheme('4')">4 · Starfield</button>
+  <button class="tb" onclick="setTheme('5')">5 · Clean Patriot</button>
+  <button class="tb" onclick="setTheme('6')">6 · Vintage BBQ</button>
+  <button class="tb" onclick="setTheme('7')">7 · Pop Art Hero</button>
+  <button class="tb" onclick="setTheme('8')">8 · Midnight Luxury</button>
+  <button class="tb" onclick="setTheme('9')">9 · Election Night</button>
+  <button class="tb" onclick="setTheme('10')">10 · Stars &amp; Stripes</button>
+</div>
+
+<div class="ts-info">
+  <strong id="ts-name">Theme 1 · Bold American Diner</strong>
+  <span id="ts-desc">Retro red &amp; navy hero, Bebas Neue display type, checker-ribbon footer stripe</span>
+</div>
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+<nav class="site-nav">
+  <a href="#" class="site-logo"><img src="https://10c3df3f.chowdown-chefmoe-site.pages.dev/assets/company-logo-transparent.png" alt="ChowDown AZ Logo" style="height:38px;width:auto;vertical-align:middle;margin-right:10px;">CHOW<em>DOWN</em>&nbsp;AZ</a>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Menu</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#" class="nav-cta">Start Order</a></li>
+  </ul>
+</nav>
+
+<!-- SOCIAL STRIP -->
+<div class="social-strip">
+  <div class="social-strip-inner">
+    <span class="social-follow-label">Follow @ChowDownAZ</span>
+    <a href="https://www.tiktok.com/@chowdownarizona" class="social-btn social-tiktok" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V9.41a8.16 8.16 0 004.77 1.52V7.47a4.85 4.85 0 01-1-.78z"/></svg>
+      TikTok
+    </a>
+    <a href="https://www.instagram.com/chow_down_arizona" class="social-btn social-ig" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      Instagram
+    </a>
+    <a href="https://web.facebook.com/people/The-Spot-Cafe/61567135498655/" class="social-btn social-fb" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.994 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      Facebook
+    </a>
+    <a href="https://www.tiktok.com/@chowdownarizona" class="social-btn social-tiktok-watch" target="_blank" rel="noopener">
+      📺 Watch Chef Moe Live
+    </a>
+  </div>
+</div>
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eye">Chef Moe&rsquo;s Ox Tail Cafe &bull; Mesa, AZ &bull; U.S. Navy Veteran &bull; American Flavor</p>
+    <h1>Flavor Unleashed</h1>
+    <p>Fresh seafood, burgers, and wings. Now with online ordering.</p>
+    <div class="btn-row">
+      <a href="#" class="btn-a">Order Now</a>
+      <a href="tel:4802012007" class="btn-b">Call Store</a>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     CHEF MOE SECTION
+===================================================== -->
+<section class="sec sec-bg1 chef-section">
+  <div class="wrap">
+    <div class="chef-grid">
+
+      <!-- Copy -->
+      <div class="chef-content">
+        <p class="sec-eyebrow">Home of the Southwest</p>
+        <h2 class="sec-h2">Chef Moe&rsquo;s Ox Tail Dish</h2>
+        <p class="sec-body">Chef Mo in the house. Big flavors, real energy, and signature dishes made fresh daily. A U.S. Navy Veteran bringing American flavor to every plate — straight from his heart to yours. Born in New Jersey, Chef Mo has been creating originals since 1993, including the legendary "Don't Hurt Yourself" Burger.</p>
+        <p class="sec-body">Specialty Ox Tail with a unique flavor you won&rsquo;t find anywhere else — slow-cooked, Caribbean-inspired, and loaded with house seasoning. As seen on TikTok with 13,900+ followers and 73K+ likes. Follow along at <strong>@chowdownarizona</strong> for behind-the-scenes kitchen footage, new specials, and live cooking sessions.</p>
+        <div class="btn-row btn-row-left">
+          <a href="https://www.tiktok.com/@chowdownarizona" class="btn-a">Watch Chef Moe on TikTok</a>
+        </div>
+      </div>
+
+      <!-- Illustration -->
+      <div class="chef-img-wrap">
+        <img src="chef-moe-updated.png"
+             alt="Chef Moe — U.S. Navy Veteran, American Flavor — Chef Moe's Ox Tail Cafe illustration"
+             style="border-radius:12px;box-shadow:0 16px 48px rgba(0,0,0,.22);" />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     TIKTOK VIDEOS
+===================================================== -->
+<section class="sec sec-alt tiktok-section">
+  <div class="wrap">
+    <p class="sec-eyebrow">Follow Along</p>
+    <h2 class="sec-h2">Watch Chef Moe Live</h2>
+    <p class="sec-body" style="max-width:640px;margin-bottom:36px;">Catch live cooking sessions, signature oxtail plating, new menu drops, and behind-the-scenes kitchen action. 13,900+ followers and 73K+ likes — join the community at <strong>@chowdownarizona</strong>.</p>
+    <div class="tiktok-grid">
+      <div class="tiktok-embed-wrap">
+        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@chowdownarizona/video/7477563315707776287" data-video-id="7477563315707776287" style="max-width:325px;min-width:325px;">
+          <section><a href="https://www.tiktok.com/@chowdownarizona" target="_blank">@chowdownarizona</a> Arizona at The Spot restaurant — live kitchen action <a href="https://www.tiktok.com/tag/thespot">#thespot</a> <a href="https://www.tiktok.com/tag/Phoenix">#Phoenix</a></section>
+        </blockquote>
+      </div>
+      <div class="tiktok-embed-wrap">
+        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@chowdownarizona/video/7478080369875766574" data-video-id="7478080369875766574" style="max-width:325px;min-width:325px;">
+          <section><a href="https://www.tiktok.com/@chowdownarizona" target="_blank">@chowdownarizona</a> The Spot Cafe — Chef Moe in action <a href="https://www.tiktok.com/tag/thespot">#thespot</a> <a href="https://www.tiktok.com/tag/live">#LIVE</a></section>
+        </blockquote>
+      </div>
+      <div class="tiktok-embed-wrap">
+        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@chowdownarizona/video/7458041038347848990" data-video-id="7458041038347848990" style="max-width:325px;min-width:325px;">
+          <section><a href="https://www.tiktok.com/@chowdownarizona" target="_blank">@chowdownarizona</a> Fun at work <a href="https://www.tiktok.com/tag/thespot">#TheSpot</a> <a href="https://www.tiktok.com/tag/Phoenix">#Phoenix</a> <a href="https://www.tiktok.com/tag/foodlover">#foodlover</a></section>
+        </blockquote>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px;">
+      <a href="https://www.tiktok.com/@chowdownarizona/playlist/The%20spot%20cafe-7478394669710248734" class="btn-a" target="_blank" rel="noopener">▶ Watch Full Playlist on TikTok</a>
+    </div>
+  </div>
+</section>
+<script async src="https://www.tiktok.com/embed.js"></script>
+
+<!-- =====================================================
+     SIGNATURE OXTAIL SECTION
+===================================================== -->
+<section class="sec sec-alt oxtail-section">
+  <div class="wrap">
+    <div class="oxtail-grid">
+
+      <!-- Copy -->
+      <div>
+        <p class="sec-eyebrow">Specialty Dish</p>
+        <h2 class="sec-h2">Famous Slow-Braised Oxtail</h2>
+        <p class="sec-body">Fall-off-the-bone tender oxtail, rich house gravy, and deep Caribbean-inspired flavor. This is the dish customers come back for — time and time again.</p>
+        <ul class="feat-list">
+          <li>Slow-cooked tenderness — hours in the making</li>
+          <li>Signature house seasoning blend &amp; savory house gravy</li>
+          <li>Served with rice, green beans &amp; sweet potatoes</li>
+          <li>Unique Caribbean-inspired spice — one-of-a-kind flavor</li>
+          <li>Platter options available for any appetite</li>
+          <li>As seen on TikTok — @chowdownarizona</li>
+        </ul>
+        <div class="oxtail-pricing">
+          <div class="price-card">
+            <span class="price-label">Oxtail Dinner</span>
+            <span class="price-amount">$26.00</span>
+            <span class="price-desc">Classic oxtail plate</span>
+          </div>
+          <div class="price-card">
+            <span class="price-label">Large Oxtail Dinner</span>
+            <span class="price-amount">$31.20</span>
+            <span class="price-desc">Ox tails, rice, green beans &amp; sweet potatoes</span>
+          </div>
+        </div>
+        <div class="btn-row btn-row-left">
+          <a href="#" class="btn-a">Order Oxtail</a>
+          <a href="https://www.tiktok.com/@chowdownarizona" class="btn-b">Watch on TikTok</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOD GALLERY -->
+<section class="sec sec-alt gallery-section">
+  <div class="wrap">
+    <p class="sec-eyebrow">Fresh Daily</p>
+    <h2 class="sec-h2">From Our Kitchen</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://thespotmenu.online/wp-content/uploads/2025/03/21.jpg" alt="ChowDown AZ Fresh Plates" />
+        <div class="gallery-caption">Fresh Plates</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://thespotmenu.online/wp-content/uploads/2025/03/22.jpg" alt="ChowDown AZ Menu Items" />
+        <div class="gallery-caption">Daily Specials</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://thespotmenu.online/wp-content/uploads/2025/03/23.jpg" alt="ChowDown AZ Burgers &amp; Wings" />
+        <div class="gallery-caption">Burgers &amp; Wings</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     MENU HIGHLIGHTS
+===================================================== -->
+<section class="sec sec-bg1 menu-section">
+  <div class="wrap">
+    <p class="sec-eyebrow">Full Menu Available Online</p>
+    <h2 class="sec-h2">Fan Favorites</h2>
+    <p class="sec-body" style="max-width:580px;margin-bottom:40px;">From Chef Mo's original 1993 New Jersey creations to fresh Arizona comfort food — there's something for everyone at The Spot.</p>
+    <div class="menu-grid">
+
+      <div class="menu-card">
+        <div class="menu-card-img">
+          <img src="https://cdn.smartonlineorder.com/wp-content/uploads/sites/5887/2025/10/RYMV9QADXMPZY-4.jpeg" alt="Don't Hurt Yourself Burger" />
+        </div>
+        <div class="menu-card-body">
+          <span class="menu-tag">Burgers</span>
+          <h3 class="menu-item-name">Don't Hurt Yourself Burger</h3>
+          <p class="menu-item-desc">The original, invented by Chef Mo in 1993 — straight outta Jersey. Two juicy patties, bold flavors, built to satisfy.</p>
+          <span class="menu-item-price">$15.60</span>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img">
+          <img src="https://cdn.smartonlineorder.com/wp-content/uploads/sites/5887/2026/03/2P0PXEGXXGYDE.jpeg" alt="Large Oxtail Dinner" />
+        </div>
+        <div class="menu-card-body">
+          <span class="menu-tag menu-tag-sig">Signature</span>
+          <h3 class="menu-item-name">Large Oxtail Dinner</h3>
+          <p class="menu-item-desc">Ox tails and rice with green beans and sweet potatoes. The dish customers drive across the city for.</p>
+          <span class="menu-item-price">$31.20</span>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img">
+          <img src="https://cdn.smartonlineorder.com/wp-content/uploads/sites/5887/2025/10/ZZAAP2QF0XJ6Y-4-scaled.jpeg" alt="Double Smash Burger" />
+        </div>
+        <div class="menu-card-body">
+          <span class="menu-tag">Burgers</span>
+          <h3 class="menu-item-name">Double Smash Burger</h3>
+          <p class="menu-item-desc">Two sizzling 1/3 lb patties smashed to perfection, layered with a bold blend of provolone and American cheese.</p>
+          <span class="menu-item-price">$15.60</span>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img">
+          <img src="https://cdn.smartonlineorder.com/wp-content/uploads/sites/5887/2025/10/4YZBCGAFJY1FA-5.jpeg" alt="World Famous Bean Pie" />
+        </div>
+        <div class="menu-card-body">
+          <span class="menu-tag">Desserts</span>
+          <h3 class="menu-item-name">World Famous Bean Pie</h3>
+          <p class="menu-item-desc">A time-honored classic, invented in 1930. Homemade with fresh navy beans — a true original.</p>
+          <span class="menu-item-price">$5.66</span>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img">
+          <img src="https://cdn.smartonlineorder.com/wp-content/uploads/sites/5887/2026/02/JFF1NV3939RSG.jpeg" alt="Chef Mo Famous Banana Pudding" />
+        </div>
+        <div class="menu-card-body">
+          <span class="menu-tag">Desserts</span>
+          <h3 class="menu-item-name">Chef Mo's Banana Pudding</h3>
+          <p class="menu-item-desc">A creamy, dreamy dessert that takes banana pudding to the next level. A customer favorite, made fresh daily.</p>
+          <span class="menu-item-price">$5.66</span>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <div class="menu-card-img">
+          <img src="https://cdn.smartonlineorder.com/wp-content/uploads/sites/5887/2026/02/BVM2J1KGWZ06M.jpeg" alt="10 Wings Party Pack" />
+        </div>
+        <div class="menu-card-body">
+          <span class="menu-tag menu-tag-deal">Deal</span>
+          <h3 class="menu-item-name">10 Wings Party Pack</h3>
+          <p class="menu-item-desc">10 juicy, crispy wings packed with bold flavor. Choose your sauce and dig in.</p>
+          <span class="menu-item-price">$13.51</span>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:44px;">
+      <a href="https://thespotcafe.smartonlineorder.com/" class="btn-a" target="_blank" rel="noopener">View Full Menu &amp; Order Online</a>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     HOW TO ORDER
+===================================================== -->
+<section class="sec sec-bg1 steps-section">
+  <div class="wrap steps-center">
+    <h2 class="sec-h2">How to Order</h2>
+    <div class="steps-grid">
+
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>Browse Menu Fast</h3>
+        <p>Clear categories and featured combos make it easy to find exactly what you want, fast.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>Add to Cart</h3>
+        <p>Simple quantity controls and a live cart summary so you always know what you&rsquo;ve got.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3>Checkout for Pickup</h3>
+        <p>Enter your details and choose your pickup time. We&rsquo;ll have your order hot and ready.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+<section class="contact-sec">
+  <div class="wrap">
+    <h2>Find Us &amp; Get in Touch</h2>
+    <div class="contact-grid" style="grid-template-columns: repeat(4, 1fr);">
+
+      <div>
+        <div class="ci-icon">📞</div>
+        <p class="ci-label">Phone</p>
+        <p class="ci-val">
+          <a href="tel:4802012007">(480) 201-2007</a><br>
+          <small style="opacity:.75;font-size:12px;">Mesa Location</small><br><br>
+          <a href="tel:6024926036">(602) 492-6036</a><br>
+          <small style="opacity:.75;font-size:12px;">Phoenix Location</small>
+        </p>
+      </div>
+
+      <div>
+        <div class="ci-icon">📍</div>
+        <p class="ci-label">Mesa Location</p>
+        <p class="ci-val">510 N Alma School Rd<br>Suite 103<br>Mesa, AZ 85201</p>
+      </div>
+
+      <div>
+        <div class="ci-icon">📍</div>
+        <p class="ci-label">Phoenix Location</p>
+        <p class="ci-val">16220 N 7th St.<br>Phoenix, AZ 85022<br><small style="opacity:.75;font-size:12px;">North Phoenix</small></p>
+      </div>
+
+      <div>
+        <div class="ci-icon">🕐</div>
+        <p class="ci-label">Hours</p>
+        <p class="ci-val">
+          <strong>Mesa:</strong> Tue–Sun 11AM–7PM<br>Closed Mondays<br><br>
+          <strong>Phoenix:</strong> Mon–Thu 10AM–8PM<br>Fri 10AM–9PM · Sat 12–10PM
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+<footer class="site-footer">
+  <ul class="ft-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Menu</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="https://www.tiktok.com/@chowdownarizona" target="_blank">TikTok @ChowDownAZ</a></li>
+    <li><a href="https://www.instagram.com/chow_down_arizona" target="_blank">Instagram @chow_down_arizona</a></li>
+    <li><a href="https://web.facebook.com/people/The-Spot-Cafe/61567135498655/" target="_blank">Facebook @ChowDownAZ</a></li>
+  </ul>
+  <p class="ft-copy">&copy; 2025 Chow Down Arizona &mdash; Chef Moe&rsquo;s Ox Tail Cafe. All rights reserved.</p>
+  <p class="ft-copy">510 N Alma School Rd, Ste. 103, Mesa, AZ 85201 &bull; (480) 201-2007</p>
+</footer>
+
+<!-- =====================================================
+     THEME SWITCHER SCRIPT
+===================================================== -->
+<script>
+  const themes = {
+    '1':  { name: 'Theme 1 · Bold American Diner',    desc: 'Red hero with navy/white checker ribbon, Bebas Neue display type, classic American diner energy' },
+    '2':  { name: 'Theme 2 · Navy Commander',          desc: 'Deep navy gradient hero with crimson accent bars, Oswald bold, military precision and authority' },
+    '3':  { name: 'Theme 3 · Firehouse Red',           desc: 'Dark crimson hero with gold headlines and flag-stripe footer band, Anton condensed, blazing energy' },
+    '4':  { name: 'Theme 4 · Starfield',               desc: 'Fully dark theme — starfield hero with neon red + blue ambient glow, Russo One, outer-space patriotic' },
+    '5':  { name: 'Theme 5 · Clean Patriot',           desc: 'Minimal white base, razor-thin red/blue accent bars, Space Grotesk modern type, clean conversion focus' },
+    '6':  { name: 'Theme 6 · Vintage BBQ Joint',       desc: 'Warm sepia/brown tones, dotted hero texture, Permanent Marker hand-lettered feel, old-school roadside joint' },
+    '7':  { name: 'Theme 7 · Pop Art Hero',            desc: 'Navy halftone hero, yellow headlines, high-contrast red nav, Barlow Condensed italic, comic book boldness' },
+    '8':  { name: 'Theme 8 · Midnight Luxury',         desc: 'All-dark with gradient text headings (red + blue), Playfair Display serif, ambient glow, upscale lounge vibe' },
+    '9':  { name: 'Theme 9 · Election Night',          desc: 'Crisp editorial layout, strong red hero block, blue sidebar accents, Merriweather news serif, broadcast authority' },
+    '10': { name: 'Theme 10 · Stars &amp; Stripes',   desc: 'White hero with subtle flag-stripe overlay, deep blue star canton column, Teko condensed, proudly patriotic' }
+  };
+
+  function setTheme(n) {
+    document.documentElement.setAttribute('data-theme', n);
+    document.querySelectorAll('.tb').forEach((b, i) => {
+      b.classList.toggle('active', String(i + 1) === n);
+    });
+    const t = themes[n];
+    document.getElementById('ts-name').innerHTML = t.name;
+    document.getElementById('ts-desc').innerHTML = t.desc;
+  }
+</script>
+
+</body>
+</html>
